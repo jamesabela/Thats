@@ -1,0 +1,18 @@
+import math
+num = []
+for i in range(1, 1001):
+    num.append(i)
+def fact_of_fact(x):
+    newnum = []
+    for j in num:
+        if j == x:
+            newnum.append(math.factorial(j))
+        elif j < x:
+            newnum.append(math.factorial(j))
+    numsum = newnum[0]
+    for h in range(1, len(newnum)):
+        numsum = numsum * newnum[h]
+    return numsum
+
+y = fact_of_fact(5)
+print(y)
