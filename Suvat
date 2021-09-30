@@ -1,0 +1,241 @@
+import math
+def allequations():
+    equationused = int(input("These are all of the suvat equations.\nPress the corresponding number to use the equation\n1 : v^2 = u^2 + 2as\n2 : s = 1/2(v+u)t\n3 : v = u + at\n4 : s = vt - 1/2at^2\n5 : s = ut + 1/2at^2\n"))
+    if equationused > 5 or equationused < 1:
+       print('Not a valid option!')
+    else:
+        return equationused
+def equation1():
+    print('v^2 = u^2 + 2as')
+    while True:
+        try:
+            whichvalue = input('Which value are you trying to find(v,u,a,s)?')
+            if whichvalue.lower() == 'v':
+                u = int(input('Enter your value for u:'))
+                a = int(input('Enter your value for a:'))
+                s = int(input("Enter your value for s:"))
+                v = 2*a*s + u**2
+                if v < 0:
+                    print("This scenario is impossible.")
+                else:
+                    v = math.sqrt(v)
+                    return round(v,2)
+            if whichvalue.lower() == 'u':
+                v = int(input('Enter your value for v:'))
+                a = int(input('Enter your value for a:'))
+                s = int(input("Enter your value for s:"))
+                u = v**2 - 2*a*s
+                if u < 0:
+                    print('This scenario is impossible')
+                else:
+                    u = math.sqrt(u)
+                    return round(u,2)
+            if whichvalue == 'a':
+                v = int(input('Enter your value for v:'))
+                u = int(input('Enter your value for u:'))
+                s = int(input("Enter your value for s:"))
+                a = v**2 - u**2
+                a = a/(2*s)
+                return round(a,2)
+            if whichvalue == 's':
+                v = int(input('Enter your value for v:'))
+                u = int(input('Enter your value for u:'))
+                a = int(input("Enter your value for a:"))
+                s = v**2 - u**2
+                s = s/(2*a)
+                return round(s,2)
+            else:
+                print('Not An Option!')
+        except ValueError:
+            print('Incorrect Value Entered!')
+def equation2():
+    print("s = 1/2(v+u)t")
+    while True:
+        try:
+            whichvalue = input("Which value are you trying to find?(s,v,u,t):")
+            if whichvalue.lower() == 's':
+                v = int(input('Enter your value for v:'))
+                u = int(input('Enter your value for u:'))
+                t = int(input('Enter your value for t:'))
+                s = 0.5*(v+u)*t
+                return round(s,2)
+            elif whichvalue.lower() == 'v':
+                s = int(input('Enter your value for s:'))
+                u = int(input('Enter your value for u:'))
+                t = int(input('Enter your value for t:'))
+                v = 2*s/t - u
+                return round(v,2)
+            elif whichvalue.lower() == 'u':
+                s = int(input('Enter your value for s:'))
+                v = int(input('Enter your value for v:'))
+                t = int(input('Enter your value for t:'))
+                u = 2*s/t - v
+                return round(u,2)
+            elif whichvalue.lower() == 't':
+                s = int(input('Enter your value for s:'))
+                v = int(input('Enter your value for v:'))
+                u = int(input('Enter your value for u:'))
+                t = s/(0.5*(v+u))
+                return round(t,2)
+            else:
+                print('Not An Option!')
+        except ValueError:
+            print('Incorrect Value Entered!')
+def equation3():
+    print("v = u + at")
+    while True:
+        try:
+            whichvalue = input("Which value are you trying to find?(v,u,a,t):")
+            if whichvalue.lower() == 'v':
+                u = int(input('Enter your value for u:'))
+                a = int(input('Enter your value for a:'))
+                t = int(input('Enter your value for t:'))
+                v = u + a*t
+                return round(v,2)
+            elif whichvalue.lower() == 'u':
+                v = int(input('Enter your value for v:'))
+                a = int(input('Enter your value for a:'))
+                t = int(input('Enter your value for t:'))
+                u = v - a*tuple
+                return round(u,2)
+            elif whichvalue.lower() == 'a':
+                v = int(input('Enter your value for v:'))
+                u = int(input('Enter your value for u:'))
+                t = int(input('Enter your value for t:'))
+                a = (v-u)/t
+                return round(a,2)
+            elif whichvalue.lower() == 't':
+                v = int(input('Enter your value for v:'))
+                u = int(input('Enter your value for u:'))
+                a = int(input('Enter your value for a:'))
+                t = (v-u)/a
+                return round(t,2)
+            else:
+                print("Not An Option!")
+        except ValueError:
+            print("Incorrect Value Entered!")
+def equation4():
+    print('s = vt - 1/2at^2')
+    while True:
+        try:
+            whichvalue = input('Which value are you trying to find?(s,v,t,a)')
+            if whichvalue.lower() == 's':
+                v = int(input('Enter your value for v:'))
+                t = int(input('Enter your value for t:'))
+                if t < 0:
+                    print('Time cannot be negative')
+                else:
+                    a = int(input('Enter your value for a:'))
+                    s = 0.5*a*t**2
+                    s = v*t - s
+                    return round(s,2)
+            elif whichvalue.lower() == 'v':
+                s = int(input('Enter your value for s:'))
+                t = int(input('Enter your value for t:'))
+                if t <= 0:
+                    print('Time cannot be equals to or less than 0 if displacement is known.')
+                else:
+                    a = int(input('Enter your value for a:'))
+                    v = s + 1/2*a*t**2
+                    v = v/t
+                    return round(v,2)
+            elif whichvalue.lower() == 't':
+                s = int(input('Enter value for s:'))
+                v = int(input('Enter value for v:'))
+                a = int(input('Enter value for a:'))
+                t = (2*v)**2-8*a*s
+                if t <= 0:
+                    print('This is not possible!')
+                else:
+                    t1 = 2*v + math.sqrt(t)
+                    t1 = t1/(2*a)
+                    t2 = 2*v - math.sqrt(t)
+                    t2 = t2/(2*a)
+                    if t1 > 0 and t2 < 0:
+                        return round(t1, 2)
+                    elif t2 > 0 and t1 < 0:
+                        return round(t2, 2)
+                    elif t1 > 0 and t2 > 0:
+                        return round(t1,2), round(t2,2)
+                    else:
+                        print('This is not possible!')
+            elif whichvalue.lower() == 'a':
+                s = int(input('Enter value for s:'))
+                v = int(input('Enter value for v:'))
+                t = int(input('Enter value for t:'))
+                if t <= 0:
+                    print('Time cannot be equals to or less than 0 if displacement is known')
+                else:
+                    a = (2*(v*t-s))/(t**2)
+                    return round(a,2)
+            else:
+                print("Not An Option!")
+        except ValueError:      
+            print('Incorrect Value Entered!')
+def equation5():
+    print('s = ut + 1/2at^2')
+    while True:
+        try:
+            whichvalue = input('Which value are you trying to find?(s,u,t,a)')
+            if whichvalue.lower() == 's':
+                u = int(input('Enter your value for u:'))
+                t = int(input('Enter your value for t:'))
+                if t < 0:
+                    print('Time cannot be negative')
+                else:
+                    a = int(input('Enter your value for a:'))
+                    s = u*t + 0.5*a*t**2
+                    return round(s,2)
+            elif whichvalue.lower() == 'u':
+                s = int(input('Enter your value for s:'))
+                t = int(input('Enter your value for t:'))
+                if t <= 0:
+                    print('Time cannot be equals to or less than 0 if displacement is known.')
+                else:
+                    a = int(input('Enter your value for a:'))
+                    u = (s - 1/2*a*t**2)/t
+                    return round(u,2)
+            elif whichvalue.lower() == 't':
+                s = int(input('Enter value for s:'))
+                u = int(input('Enter value for u:'))
+                a = int(input('Enter value for a:'))
+                t = (u)**2+2*a*s
+                if t <= 0:
+                    print('This is not possible!')
+                else:
+                    t1 = -u + math.sqrt(t)
+                    t1 = t1/(a)
+                    t2 = -u - math.sqrt(t)
+                    t2 = t2/(a)
+                    if t1 > 0 and t2 < 0:
+                        return round(t1, 2)
+                    elif t2 > 0 and t1 < 0:
+                        return round(t2, 2)
+                    elif t1 > 0 and t2 > 0:
+                        return round(t1,2), round(t2,2)
+                    else:
+                        print('This is not possible!')
+            elif whichvalue.lower() == 'a':
+                s = int(input('Enter value for s:'))
+                u = int(input('Enter value for u:'))
+                t = int(input('Enter value for t:'))
+                if t <= 0:
+                    print('Time cannot be equals to or less than 0 if displacement is known')
+                else:
+                    a = (2*(s-u*t))/(t**2)
+                    return round(a,2)
+            else:
+                print("Not An Option!")
+        except ValueError:      
+            print('Incorrect Value Entered!')
+equationused = allequations()
+if equationused == 1:
+    print(equation1())
+elif equationused == 2:
+    print(equation1())
+elif equationused == 3:
+    print(equation3())
+elif equationused == 4: 
+    print(equation4())
+elif equationused == 5:
+    print(equation5())
