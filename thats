@@ -1,0 +1,22 @@
+class GameElement:
+    def __init__(self, PositionX, PositionY, Width, Height, ImageFilename):
+        self.PositionX = PositionX
+        self.PositionY = PositionY
+        self.Width = Width
+        self.Height = Height
+        self.ImageFilename = ImageFilename
+    def GetDetails(self):
+        return (str(self.PositionX) + " " + str(self.PositionY) + " " + str(self.Width) + " " + str(self.Height) + " " + self.ImageFilename)
+
+class Scenery(GameElement):
+    def __init__(self,  PositionX, PositionY, Width, Height, ImageFilename, CauseDamage, DamagePoints):
+        self.CauseDamage = CauseDamage
+        self.DamagePoints = DamagePoints
+        GameElement.__init__(self, PositionX, PositionY, Width, Height, ImageFilename)
+    def GiveDamagePoints(self):
+        if self.CauseDamage:
+            return self.DamagePoints
+    def GetScenery(self):
+        return (self.GetDetails() + " " + str(self.CauseDamage) + " " + str(self.DamagePoints))
+GiftBox = Scenery(150, 150, 50, 75, "box.png", True, 50)
+print(GiftBox.GetScenery())
