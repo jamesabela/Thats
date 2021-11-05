@@ -1,0 +1,42 @@
+class Horse_Better:
+    def __init__(self, InputHorseID, ):
+        self.HorseID = InputHorseID
+        self.Horse_Level = 'N/A'
+        self.Cash = 1
+    def GetCash(self):
+        return self.Cash
+    def GetHorseID(self):
+        return self.HorseID
+    def GetHorse_Level(self):
+        return self.Horse_Level
+    def SetHorseID(self):
+        while True:
+            try:
+                HorseID = str(input("Enter your HorseID:"))
+                if int(HorseID) >= 0 and int(HorseID) <= 456:
+                    self.HorseID = HorseID
+                    print(f"Your new horse id is {self.HorseID}!")
+                    break
+                print("Must be below 456 and above 1!")
+            except ValueError:
+                print('Enter an integer!')
+    def SetCash(self, CashInput):
+        if CashInput >= 0 and CashInput <= 150:
+            self.Cash = CashInput
+            return True
+        else:
+            print("Cash must be between $0 and $150!")
+            return False
+    def SetHorse_Level(self):
+        if self.Cash > 0 and self.Cash <= 45:
+            self.Horse_Level = "Pathetic"
+        elif self.Cash > 45 and self.Cash <= 90:
+            self.Horse_Level = "Mid"
+        elif self.Cash > 90 and self.Cash <= 130:
+            self.Horse_Level = "Good"
+        elif self.Cash > 130 and self.Cash <= 150:
+            self.Horse_Level = "Insane"
+x = Horse_Better('020')
+x.SetHorseID()
+
+
